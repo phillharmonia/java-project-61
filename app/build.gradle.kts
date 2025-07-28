@@ -1,5 +1,5 @@
 plugins {
-    id("java")
+    id("application")
     id("com.github.ben-manes.versions") version "0.51.0"
 }
 
@@ -29,3 +29,4 @@ tasks.withType<JavaExec> {
 tasks.withType<Test> {
     jvmArgs("--enable-preview")
 }
+the<JavaApplication>().mainClass.set("hexlet.code.App")
