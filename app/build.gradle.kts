@@ -1,6 +1,7 @@
 plugins {
     id("application")
     id("com.github.ben-manes.versions") version "0.51.0"
+    checkstyle
 }
 
 group = "hexlet.code"
@@ -33,3 +34,8 @@ tasks.getByName("run", JavaExec::class) {
     standardInput = System.`in`
 }
 the<JavaApplication>().mainClass.set("hexlet.code.App")
+
+checkstyle {
+    toolVersion = "10.12.1" // например
+    configFile = file("config/checkstyle/checkstyle.xml")
+}
