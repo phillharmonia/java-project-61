@@ -29,4 +29,7 @@ tasks.withType<JavaExec> {
 tasks.withType<Test> {
     jvmArgs("--enable-preview")
 }
+tasks.getByName("run", JavaExec::class) {
+    standardInput = System.`in`
+}
 the<JavaApplication>().mainClass.set("hexlet.code.App")
