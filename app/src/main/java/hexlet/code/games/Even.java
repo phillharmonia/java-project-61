@@ -28,5 +28,6 @@ public class Even {
             correctAnswers += 1;
         }
         Messages.printCongratulations(userName);
+        scanner.close();
     }
 }
