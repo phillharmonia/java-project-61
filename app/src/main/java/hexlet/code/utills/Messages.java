@@ -1,4 +1,4 @@
-package hexlet.code.games;
+package hexlet.code.utills;
 
 public class Messages {
     public static void printWrongAnswer(String answer, String correctAnswer, String userName) {
