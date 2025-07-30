@@ -6,3 +6,5 @@
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=phillharmonia_java-project-61&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=phillharmonia_java-project-61)
 ## Пример запуска игры Even
 [Демонстрация игры](https://asciinema.org/a/dOwKRmoflg1GdALgcMClBuwFg)
+## Пример запуска игры Calc
+[Демонстрация игры](https://asciinema.org/a/QfEwrNtZTQUIAv2Cmf8ywOrBW)
