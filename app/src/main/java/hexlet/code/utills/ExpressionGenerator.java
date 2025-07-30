@@ -9,4 +9,7 @@ public class ExpressionGenerator {
     public static int generateNumber(int number) {
         return Random.nextInt(number);
     }
+    public static int generateOperator() {
+        return Operators[Random.nextInt(Operators.length)];
+    }
 }
