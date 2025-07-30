@@ -1,22 +1,20 @@
 package hexlet.code.games;
 
-import java.util.Random;
+import hexlet.code.utills.ExpressionGenerator;
+import hexlet.code.utills.Greeting;
+
 import java.util.Scanner;
 
 public class Even {
     public static void game() {
         Scanner scanner = new Scanner(System.in);
-        Random random = new Random();
-
-        System.out.println("Welcome to the Brain Games!");
-        System.out.print("May I have your name? ");
-        String userName = scanner.nextLine();
-        System.out.println("Hello, " + userName + "!");
+        var userName = Greeting.greet();
+        Greeting.greet();
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
         int correctAnswers= 0;
         while (correctAnswers < 3) {
-            int number = random.nextInt(100);
+            int number = ExpressionGenerator.generateNumber(100);
             System.out.println("Question: " + number);
             System.out.print("Your answer: ");
             String answer = scanner.nextLine();
