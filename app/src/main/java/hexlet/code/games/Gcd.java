@@ -13,14 +13,13 @@ public class Gcd {
         System.out.println("Find the greatest common divisor of given numbers. ");
 
         int correctAnswers = 0;
-        while(correctAnswers < 3) {
+        while (correctAnswers < 3) {
             int nod = ExpressionGenerator.generateNumber(1, 25);
             int a = ExpressionGenerator.generateNumber(1, 10) * nod;
             int b = ExpressionGenerator.generateNumber(1, 10) * nod;
             var question = a + " " + b + " ";
             Messages.printQuestion(question);
             Messages.printYourAnswer();
-            
             int answer = scanner.nextInt();
             int correctAnswer = ExpressionGenerator.gcd(a, b);
 
@@ -29,7 +28,7 @@ public class Gcd {
                 return;
             }
             Messages.printCorrect();
-            correctAnswers+=1;
+            correctAnswers += 1;
         }
         Messages.printCongratulations(userName);
         scanner.close();

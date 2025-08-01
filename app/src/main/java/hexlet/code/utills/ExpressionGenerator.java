@@ -3,14 +3,14 @@ package hexlet.code.utills;
 import java.util.Random;
 
 public class ExpressionGenerator {
-    private static final char[] Operators = {'+', '-', '*'};
-    private static final Random Random = new Random();
+    private static final char[] OPERATORS = {'+', '-', '*'};
+    private static final Random RANDOM = new Random();
 
     public static int generateNumber(int min, int max) {
-        return Random.nextInt(min, max);
+        return RANDOM.nextInt(min, max);
     }
     public static char generateOperator() {
-        return Operators[Random.nextInt(Operators.length)];
+        return OPERATORS[RANDOM.nextInt(OPERATORS.length)];
     }
     public static int calculate(int a, int b, char operator) {
         return switch (operator) {

@@ -39,7 +39,7 @@ public class Progression {
                 return;
             }
             Messages.printCorrect();
-            correctAnswers+=1;
+            correctAnswers += 1;
         }
         Messages.printCongratulations(userName);
         scanner.close();

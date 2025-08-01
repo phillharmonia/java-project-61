@@ -21,7 +21,7 @@ public class Even {
 
             String answer = scanner.nextLine();
             String correctAnswer = number % 2 == 0 ? "yes" : "no";
-            if(!answer.equals(correctAnswer)) {
+            if (!answer.equals(correctAnswer)) {
                 Messages.printWrongAnswer(answer, correctAnswer, userName);
                 return;
             }
