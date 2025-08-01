@@ -1,9 +1,6 @@
 package hexlet.code;
 
-import hexlet.code.games.Calc;
-import hexlet.code.games.Even;
-import hexlet.code.games.Gcd;
-import hexlet.code.games.Progression;
+import hexlet.code.games.*;
 import hexlet.code.utills.Greeting;
 
 import java.util.Scanner;
@@ -17,6 +14,7 @@ public class Engine {
         System.out.println("3 - Calc");
         System.out.println("4 - GCD");
         System.out.println("5 - Progression");
+        System.out.println("6 - Prime");
         System.out.println("0 - Exit");
         System.out.print("Enter your choice: ");
 
@@ -28,6 +26,7 @@ public class Engine {
             case 3 -> Calc.game();
             case 4 -> Gcd.game();
             case 5 -> Progression.game();
+            case 6 -> Prime.game();
             case 0 -> System.out.println("Bye!");
             default -> System.out.println("Invalid choice.");
         }
