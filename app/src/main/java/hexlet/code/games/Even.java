@@ -14,7 +14,7 @@ public class Even {
 
         int correctAnswers = 0;
         while (correctAnswers < 3) {
-            int number = ExpressionGenerator.generateNumber(100);
+            int number = ExpressionGenerator.generateNumber(0, 100);
             var question = number + "";
             Messages.printQuestion(question);
             Messages.printYourAnswer();

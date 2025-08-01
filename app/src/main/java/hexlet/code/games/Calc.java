@@ -14,8 +14,8 @@ public class Calc {
 
         int correctAnswers = 0;
         while (correctAnswers < 3) {
-            int a = ExpressionGenerator.generateNumber(20);
-            int b = ExpressionGenerator.generateNumber(20);
+            int a = ExpressionGenerator.generateNumber(0, 20);
+            int b = ExpressionGenerator.generateNumber(0, 20);
             char operator = ExpressionGenerator.generateOperator();
             var question = a + " " + operator + " " + b + " ";
 
