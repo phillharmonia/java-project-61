@@ -8,3 +8,5 @@
 [Демонстрация игры](https://asciinema.org/a/dOwKRmoflg1GdALgcMClBuwFg)
 ## Пример запуска игры Calc
 [Демонстрация игры](https://asciinema.org/a/QfEwrNtZTQUIAv2Cmf8ywOrBW)
+## Пример запуска игры GCD
+[Демонстрация игры](https://asciinema.org/a/yvHframVJwnDDWk8CcEAhvFAD)
