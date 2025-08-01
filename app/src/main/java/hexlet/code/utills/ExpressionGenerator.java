@@ -28,4 +28,11 @@ public class ExpressionGenerator {
         }
         return a;
     }
+    public static int[] generateProgression(int start, int step, int length) {
+        int[] progression = new int[length];
+        for (int i = 0; i < length; i++) {
+            progression[i] = start + i * step;
+        }
+        return progression;
+    }
 }
