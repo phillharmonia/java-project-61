@@ -10,3 +10,7 @@
 [Демонстрация игры](https://asciinema.org/a/QfEwrNtZTQUIAv2Cmf8ywOrBW)
 ## Пример запуска игры GCD
 [Демонстрация игры](https://asciinema.org/a/yvHframVJwnDDWk8CcEAhvFAD)
+## Пример запуска игры Progression
+[Демонстрация игры](https://asciinema.org/a/WsEO6t8iBLwZwGwD0u37xMWxs)
+## Пример запуска игры Prime
+[Демонстрация игры](https://asciinema.org/a/lBzLlnpRY2jLyRvFyUebP6obX)
