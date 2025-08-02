@@ -1,6 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.utills.ExpressionGenerator;
+import hexlet.code.utills.Constants;
 import hexlet.code.utills.Greeting;
 import hexlet.code.utills.Messages;
 
@@ -13,9 +14,9 @@ public class Calc {
         System.out.println("What is the result of the expression?");
 
         int correctAnswers = 0;
-        while (correctAnswers < 3) {
-            int a = ExpressionGenerator.generateNumber(0, 20);
-            int b = ExpressionGenerator.generateNumber(0, 20);
+        while (correctAnswers < Constants.MAX_ROUNDS) {
+            int a = ExpressionGenerator.generateNumber(Constants.CALC_MIN, Constants.CALC_MAX);
+            int b = ExpressionGenerator.generateNumber(Constants.CALC_MIN, Constants.CALC_MAX);
             char operator = ExpressionGenerator.generateOperator();
             var question = a + " " + operator + " " + b + " ";
 

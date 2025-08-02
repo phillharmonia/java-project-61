@@ -1,6 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.utills.ExpressionGenerator;
+import hexlet.code.utills.Constants;
 import hexlet.code.utills.Greeting;
 import hexlet.code.utills.Messages;
 
@@ -13,10 +14,10 @@ public class Gcd {
         System.out.println("Find the greatest common divisor of given numbers. ");
 
         int correctAnswers = 0;
-        while (correctAnswers < 3) {
-            int nod = ExpressionGenerator.generateNumber(1, 25);
-            int a = ExpressionGenerator.generateNumber(1, 10) * nod;
-            int b = ExpressionGenerator.generateNumber(1, 10) * nod;
+        while (correctAnswers < Constants.MAX_ROUNDS) {
+            int nod = ExpressionGenerator.generateNumber(Constants.GCD_MIN_NOD, Constants.GCD_MAX_NOD);
+            int a = ExpressionGenerator.generateNumber(Constants.GCD_MIN_NUMBER, Constants.GCD_MAX_NUMBER) * nod;
+            int b = ExpressionGenerator.generateNumber(Constants.GCD_MIN_NUMBER, Constants.GCD_MAX_NUMBER) * nod;
             var question = a + " " + b + " ";
             Messages.printQuestion(question);
             Messages.printYourAnswer();

@@ -5,6 +5,7 @@ import java.util.Random;
 public class ExpressionGenerator {
     private static final char[] OPERATORS = {'+', '-', '*'};
     private static final Random RANDOM = new Random();
+    private static final int FIRST_ODD_DIVISOR = 3;
 
     public static int generateNumber(int min, int max) {
         return RANDOM.nextInt(min, max);
@@ -45,7 +46,7 @@ public class ExpressionGenerator {
         if (number % 2 == 0) {
             return "false";
         }
-        for (int i = 3; i <= Math.sqrt(number); i += 2) {
+        for (int i = FIRST_ODD_DIVISOR; i <= Math.sqrt(number); i += 2) {
             if (number % i == 0) {
                 return "false";
             }

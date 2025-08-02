@@ -1,6 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.utills.ExpressionGenerator;
+import hexlet.code.utills.Constants;
 import hexlet.code.utills.Greeting;
 import hexlet.code.utills.Messages;
 
@@ -13,12 +14,12 @@ public class Progression {
         System.out.println("What number is missing in the progression?");
 
         int correctAnswers = 0;
-        while (correctAnswers < 3) {
-            int start = ExpressionGenerator.generateNumber(1, 50);
-            int step = ExpressionGenerator.generateNumber(1, 10);
-            int length = 10;
+        while (correctAnswers < Constants.MAX_ROUNDS) {
+            int start = ExpressionGenerator.generateNumber(Constants.MIN_NUMBER, Constants.PROGRESSION_START_MAX);
+            int step = ExpressionGenerator.generateNumber(Constants.MIN_NUMBER, Constants.PROGRESSION_MAX_STEP);
+            int length = Constants.PROGRESSION_MAX_LENGTH;
             int[] progression = ExpressionGenerator.generateProgression(start, step, length);
-            int hiddenIndex = ExpressionGenerator.generateNumber(1, length);
+            int hiddenIndex = ExpressionGenerator.generateNumber(Constants.MIN_NUMBER, length);
             int correctValue = progression[hiddenIndex];
 
             StringBuilder question = new StringBuilder();

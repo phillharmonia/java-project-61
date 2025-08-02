@@ -6,6 +6,7 @@ import hexlet.code.games.Gcd;
 import hexlet.code.games.Progression;
 import hexlet.code.games.Prime;
 
+import hexlet.code.utills.Constants;
 import hexlet.code.utills.Greeting;
 
 import java.util.Scanner;
@@ -26,13 +27,13 @@ public class Engine {
         int choice = scanner.nextInt();
 
         switch (choice) {
-            case 1 -> Greeting.greet();
-            case 2 -> Even.game();
-            case 3 -> Calc.game();
-            case 4 -> Gcd.game();
-            case 5 -> Progression.game();
-            case 6 -> Prime.game();
-            case 0 -> System.out.println("Bye!");
+            case Constants.GAME_GREET -> Greeting.greet();
+            case Constants.GAME_EVEN -> Even.game();
+            case Constants.GAME_CALC -> Calc.game();
+            case Constants.GAME_GCD -> Gcd.game();
+            case Constants.GAME_PROGRESSION -> Progression.game();
+            case Constants.GAME_PRIME -> Prime.game();
+            case Constants.GAME_EXIT -> System.out.println("Bye!");
             default -> System.out.println("Invalid choice.");
         }
         scanner.close();

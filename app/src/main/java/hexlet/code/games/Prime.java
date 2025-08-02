@@ -1,6 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.utills.ExpressionGenerator;
+import hexlet.code.utills.Constants;
 import hexlet.code.utills.Greeting;
 import hexlet.code.utills.Messages;
 
@@ -13,8 +14,8 @@ public class Prime {
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
 
         int correctAnswers = 0;
-        while (correctAnswers < 3) {
-            int number = ExpressionGenerator.generateNumber(1, 100);
+        while (correctAnswers < Constants.MAX_ROUNDS) {
+            int number = ExpressionGenerator.generateNumber(Constants.MIN_NUMBER, Constants.MAX_NUMBER);
             var question = number + "";
             Messages.printQuestion(question);
             Messages.printYourAnswer();
