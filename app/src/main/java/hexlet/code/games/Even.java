@@ -1,35 +1,28 @@
 package hexlet.code.games;
 
-import hexlet.code.utills.ExpressionGenerator;
-import hexlet.code.utills.Constants;
-import hexlet.code.utills.Greeting;
-import hexlet.code.utills.Messages;
+import hexlet.code.Engine;
 
-import java.util.Scanner;
+import java.util.Random;
 
-public class Even {
-    public static void game() {
-        Scanner scanner = new Scanner(System.in);
-        var userName = Greeting.greet();
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
+public final class Even {
+    private static final String DESCRIPTION = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    private static final int MIN_NUMBER = 1;
+    private static final int MAX_NUMBER = 100;
+    public static void start() {
+        Random random = new Random();
+        String[][] rounds = new String[Engine.ROUNDS][2];
 
-        int correctAnswers = 0;
-        while (correctAnswers < Constants.MAX_ROUNDS) {
-            int number = ExpressionGenerator.generateNumber(Constants.MIN_NUMBER, Constants.MAX_NUMBER);
+        for (int i = 0; i < Engine.ROUNDS; i++) {
+            int number = random.nextInt(MIN_NUMBER, MAX_NUMBER);
             var question = number + "";
-            Messages.printQuestion(question);
-            Messages.printYourAnswer();
+            var answer = isEven(number) ? "yes" : "no";
 
-            String answer = scanner.nextLine();
-            String correctAnswer = number % 2 == 0 ? "yes" : "no";
-            if (!answer.equals(correctAnswer)) {
-                Messages.printWrongAnswer(answer, correctAnswer, userName);
-                return;
-            }
-            Messages.printCorrect();
-            correctAnswers += 1;
+            rounds[i][0] = question;
+            rounds[i][1] = answer;
         }
-        Messages.printCongratulations(userName);
-        scanner.close();
+        Engine.run(DESCRIPTION, rounds);
+    }
+    private static boolean isEven(int n) {
+        return n % 2 == 0;
     }
 }

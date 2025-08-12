@@ -1,41 +1,34 @@
 package hexlet.code;
 
-import hexlet.code.games.Even;
-import hexlet.code.games.Calc;
-import hexlet.code.games.Gcd;
-import hexlet.code.games.Progression;
-import hexlet.code.games.Prime;
-
-import hexlet.code.utills.Constants;
-import hexlet.code.utills.Greeting;
-
 import java.util.Scanner;
 
-public class Engine {
-    public static void games() {
+public final class Engine {
+    public static final int ROUNDS = 3;
+
+    public static void run(String description, String[][] rounds) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Please enter the game number and press Enter.");
-        System.out.println("1 - Greet");
-        System.out.println("2 - Even");
-        System.out.println("3 - Calc");
-        System.out.println("4 - GCD");
-        System.out.println("5 - Progression");
-        System.out.println("6 - Prime");
-        System.out.println("0 - Exit");
-        System.out.print("Enter your choice: ");
 
-        int choice = scanner.nextInt();
+        System.out.println("Welcome to the Brain Games!");
 
-        switch (choice) {
-            case Constants.GAME_GREET -> Greeting.greet();
-            case Constants.GAME_EVEN -> Even.game();
-            case Constants.GAME_CALC -> Calc.game();
-            case Constants.GAME_GCD -> Gcd.game();
-            case Constants.GAME_PROGRESSION -> Progression.game();
-            case Constants.GAME_PRIME -> Prime.game();
-            case Constants.GAME_EXIT -> System.out.println("Bye!");
-            default -> System.out.println("Invalid choice.");
+        System.out.print("May I have your name? ");
+        String user = scanner.nextLine();
+        System.out.println("Hello, " + user + "!");
+        System.out.println(description);
+        for (int i = 0; i < ROUNDS; i++) {
+            String question = rounds[i][0];
+            String correctAnswer = rounds[i][1];
+
+            System.out.println("Question: " + question);
+            System.out.print("Your answer: ");
+            String answer = scanner.nextLine();
+
+            if (!answer.equals(correctAnswer)) {
+                System.out.println("'" + answer + "' is wrong ;(. Correct answer was '" + correctAnswer + "'.");
+                System.out.println("Let's try again, " + user + "!");
+                return;
+            }
+            System.out.println("Correct!");
         }
-        scanner.close();
+        System.out.println("Congratulations, " + user + "!");
     }
 }

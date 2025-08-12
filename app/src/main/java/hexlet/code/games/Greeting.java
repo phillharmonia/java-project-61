@@ -1,8 +1,8 @@
-package hexlet.code.utills;
+package hexlet.code.games;
 
 import java.util.Scanner;
 
-public class Greeting {
+public final class Greeting {
     public static String greet() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to the Brain Games!");

@@ -1,35 +1,46 @@
 package hexlet.code.games;
 
-import hexlet.code.utills.ExpressionGenerator;
-import hexlet.code.utills.Constants;
-import hexlet.code.utills.Greeting;
-import hexlet.code.utills.Messages;
+import hexlet.code.Engine;
 
-import java.util.Scanner;
+import java.util.Random;
 
-public class Prime {
-    public static void game() {
-        Scanner scanner = new Scanner(System.in);
-        var userName = Greeting.greet();
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+public final class Prime {
+    private static final String DESCRIPTION = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    private static final int MIN_NUMBER = 1;
+    private static final int MAX_NUMBER = 100;
+    private static final int FIRST_ODD_DIVISOR = 3;
 
-        int correctAnswers = 0;
-        while (correctAnswers < Constants.MAX_ROUNDS) {
-            int number = ExpressionGenerator.generateNumber(Constants.MIN_NUMBER, Constants.MAX_NUMBER);
+    public static void start() {
+        String[][] rounds = new String[Engine.ROUNDS][2];
+        Random random = new Random();
+
+        for (int i = 0; i < Engine.ROUNDS; i++) {
+            int number = random.nextInt(MIN_NUMBER, MAX_NUMBER);
             var question = number + "";
-            Messages.printQuestion(question);
-            Messages.printYourAnswer();
+            var answer = isPrime(number) ? "yes" : "no";
 
-            String answer = scanner.nextLine();
-            String correctAnswer = ExpressionGenerator.isPrime(number).equals("true") ? "yes" : "no";
-            if (!answer.equals(correctAnswer)) {
-                Messages.printWrongAnswer(answer, correctAnswer, userName);
-                return;
-            }
-            Messages.printCorrect();
-            correctAnswers += 1;
+            rounds[i][0] = question;
+            rounds[i][1] = answer;
         }
-        Messages.printCongratulations(userName);
-        scanner.close();
+
+        Engine.run(DESCRIPTION, rounds);
+    }
+
+    private static boolean isPrime(int number) {
+        if (number < 2) {
+            return false;
+        }
+        if (number == 2) {
+            return true;
+        }
+        if (number % 2 == 0) {
+            return false;
+        }
+        for (int i = FIRST_ODD_DIVISOR; i <= Math.sqrt(number); i += 2) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }

@@ -1,38 +1,38 @@
 package hexlet.code.games;
 
-import hexlet.code.utills.ExpressionGenerator;
-import hexlet.code.utills.Constants;
-import hexlet.code.utills.Greeting;
-import hexlet.code.utills.Messages;
+import hexlet.code.Engine;
 
-import java.util.Scanner;
+import java.util.Random;
 
-public class Calc {
-    public static void game() {
-        Scanner scanner = new Scanner(System.in);
-        var userName = Greeting.greet();
-        System.out.println("What is the result of the expression?");
+public final class Calc {
+    private static final String DESCRIPTION = "What is the result of the expression?";
+    private static final char[] OPS = {'+', '-', '*'};
+    private static final int MIN = 1;
+    private static final int MAX = 20;
 
-        int correctAnswers = 0;
-        while (correctAnswers < Constants.MAX_ROUNDS) {
-            int a = ExpressionGenerator.generateNumber(Constants.CALC_MIN, Constants.CALC_MAX);
-            int b = ExpressionGenerator.generateNumber(Constants.CALC_MIN, Constants.CALC_MAX);
-            char operator = ExpressionGenerator.generateOperator();
-            var question = a + " " + operator + " " + b + " ";
+    public static void start() {
+        Random random = new Random();
+        String[][] rounds = new String[Engine.ROUNDS][2];
 
-            Messages.printQuestion(question);
-            Messages.printYourAnswer();
+        for (int i = 0; i < Engine.ROUNDS; i++) {
+            int a = random.nextInt(MIN, MAX);
+            int b = random.nextInt(MIN, MAX);
+            char operator = OPS[random.nextInt(OPS.length)];
+            var question = a + " " + operator + " " + b;
+            var answer = String.valueOf(calculate(a, b, operator));
 
-            int answer = scanner.nextInt();
-            int correctAnswer = ExpressionGenerator.calculate(a, b, operator);
-            if (answer != correctAnswer) {
-                Messages.printWrongAnswer(answer, correctAnswer, userName);
-                return;
-            }
-            Messages.printCorrect();
-            correctAnswers += 1;
+            rounds[i][0] = question;
+            rounds[i][1] = answer;
         }
-        Messages.printCongratulations(userName);
-        scanner.close();
+        Engine.run(DESCRIPTION, rounds);
+    }
+    private static int calculate(int a, int b, char operator) {
+        return switch (operator) {
+            case '+' -> a + b;
+            case '-' -> a - b;
+            case '*' -> a * b;
+            default -> throw new IllegalStateException("Unexpected value: " + operator);
+        };
     }
 }
+

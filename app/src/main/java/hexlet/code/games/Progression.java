@@ -1,48 +1,49 @@
 package hexlet.code.games;
 
-import hexlet.code.utills.ExpressionGenerator;
-import hexlet.code.utills.Constants;
-import hexlet.code.utills.Greeting;
-import hexlet.code.utills.Messages;
+import hexlet.code.Engine;
 
-import java.util.Scanner;
+import java.util.Random;
 
-public class Progression {
-    public static void game() {
-        Scanner scanner = new Scanner(System.in);
-        var userName = Greeting.greet();
-        System.out.println("What number is missing in the progression?");
+public final class Progression {
+    private static final String DESCRIPTION = "What number is missing in the progression?";
+    private static final int MIN_NUMBER = 1;
+    private static final int MAX_STEP = 10;
+    private static final int START_MAX = 50;
+    private static final int MAX_LENGTH = 10;
 
-        int correctAnswers = 0;
-        while (correctAnswers < Constants.MAX_ROUNDS) {
-            int start = ExpressionGenerator.generateNumber(Constants.MIN_NUMBER, Constants.PROGRESSION_START_MAX);
-            int step = ExpressionGenerator.generateNumber(Constants.MIN_NUMBER, Constants.PROGRESSION_MAX_STEP);
-            int length = Constants.PROGRESSION_MAX_LENGTH;
-            int[] progression = ExpressionGenerator.generateProgression(start, step, length);
-            int hiddenIndex = ExpressionGenerator.generateNumber(Constants.MIN_NUMBER, length);
-            int correctValue = progression[hiddenIndex];
+    public static void start() {
+        String[][] rounds = new String[Engine.ROUNDS][2];
+        Random random = new Random();
+
+        for (int i = 0; i < Engine.ROUNDS; i++) {
+            int start = random.nextInt(MIN_NUMBER, START_MAX);
+            int step = random.nextInt(MIN_NUMBER, MAX_STEP);
+            int[] progression = generateProgression(start, step, MAX_LENGTH);
+
+            int hiddenIndex = random.nextInt(0, MAX_LENGTH - 1);
+            String answer = String.valueOf(progression[hiddenIndex]);
 
             StringBuilder question = new StringBuilder();
-            for (int i = 0; i < progression.length; i++) {
-                if (i == hiddenIndex) {
+            for (int j = 0; j < progression.length; j++) {
+                if (j == hiddenIndex) {
                     question.append(".. ");
                 } else {
-                    question.append(progression[i]).append(" ");
+                    question.append(progression[j]).append(" ");
                 }
             }
-            Messages.printQuestion(question.toString());
-            Messages.printYourAnswer();
 
-            int answer = scanner.nextInt();
-
-            if (answer != correctValue) {
-                Messages.printWrongAnswer(answer, correctValue, userName);
-                return;
-            }
-            Messages.printCorrect();
-            correctAnswers += 1;
+            rounds[i][0] = question.toString().trim();
+            rounds[i][1] = answer;
         }
-        Messages.printCongratulations(userName);
-        scanner.close();
+
+        Engine.run(DESCRIPTION, rounds);
+    }
+
+    private static int[] generateProgression(int start, int step, int length) {
+        int[] progression = new int[length];
+        for (int i = 0; i < length; i++) {
+            progression[i] = start + i * step;
+        }
+        return progression;
     }
 }
