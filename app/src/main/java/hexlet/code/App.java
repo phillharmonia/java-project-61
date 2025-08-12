@@ -10,6 +10,13 @@ import hexlet.code.games.Greeting;
 import java.util.Scanner;
 
 public class App {
+    private static final int GREET = 1;
+    private static final int EVEN = 2;
+    private static final int CALC = 3;
+    private static final int GCD = 4;
+    private static final int PROGRESSION = 5;
+    private static final int PRIME = 6;
+    private static final int EXIT = 0;
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -26,13 +33,13 @@ public class App {
         int choice = scanner.nextInt();
 
         switch (choice) {
-            case 1 -> Greeting.greet();
-            case 2 -> Even.start();
-            case 3 -> Calc.start();
-            case 4 -> Gcd.start();
-            case 5 -> Progression.start();
-            case 6-> Prime.start();
-            case 0 -> System.out.println("Bye!");
+            case GREET -> Greeting.greet();
+            case EVEN -> Even.start();
+            case CALC -> Calc.start();
+            case GCD -> Gcd.start();
+            case PROGRESSION -> Progression.start();
+            case PRIME -> Prime.start();
+            case EXIT -> System.out.println("Bye!");
             default -> System.out.println("Invalid choice.");
         }
         scanner.close();
