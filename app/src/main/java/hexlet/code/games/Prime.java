@@ -2,7 +2,7 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-import java.util.Random;
+import java.security.SecureRandom;
 
 public final class Prime {
     private static final String DESCRIPTION = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
@@ -12,7 +12,7 @@ public final class Prime {
 
     public static void start() {
         String[][] rounds = new String[Engine.ROUNDS][2];
-        Random random = new Random();
+        SecureRandom random = new SecureRandom();
 
         for (int i = 0; i < Engine.ROUNDS; i++) {
             int number = random.nextInt(MIN_NUMBER, MAX_NUMBER);

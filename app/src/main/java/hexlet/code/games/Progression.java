@@ -2,7 +2,7 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-import java.util.Random;
+import java.security.SecureRandom;
 
 public final class Progression {
     private static final String DESCRIPTION = "What number is missing in the progression?";
@@ -13,7 +13,7 @@ public final class Progression {
 
     public static void start() {
         String[][] rounds = new String[Engine.ROUNDS][2];
-        Random random = new Random();
+        SecureRandom random = new SecureRandom();
 
         for (int i = 0; i < Engine.ROUNDS; i++) {
             int start = random.nextInt(MIN_NUMBER, START_MAX);

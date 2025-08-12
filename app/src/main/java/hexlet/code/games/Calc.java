@@ -2,7 +2,7 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-import java.util.Random;
+import java.security.SecureRandom;
 
 public final class Calc {
     private static final String DESCRIPTION = "What is the result of the expression?";
@@ -11,7 +11,7 @@ public final class Calc {
     private static final int MAX = 20;
 
     public static void start() {
-        Random random = new Random();
+        SecureRandom random = new SecureRandom();
         String[][] rounds = new String[Engine.ROUNDS][2];
 
         for (int i = 0; i < Engine.ROUNDS; i++) {
