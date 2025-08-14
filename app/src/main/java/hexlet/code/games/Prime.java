@@ -8,7 +8,6 @@ public final class Prime {
     private static final String DESCRIPTION = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     private static final int MIN_NUMBER = 1;
     private static final int MAX_NUMBER = 100;
-    private static final int FIRST_ODD_DIVISOR = 3;
 
     public static void start() {
         String[][] rounds = new String[Engine.ROUNDS][2];
@@ -36,7 +35,7 @@ public final class Prime {
         if (number % 2 == 0) {
             return false;
         }
-        for (int i = FIRST_ODD_DIVISOR; i <= Math.sqrt(number); i += 2) {
+        for (int i = 3; i <= Math.sqrt(number); i += 2) {
             if (number % i == 0) {
                 return false;
             }

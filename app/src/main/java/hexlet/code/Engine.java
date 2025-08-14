@@ -9,14 +9,15 @@ public final class Engine {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Welcome to the Brain Games!");
-
         System.out.print("May I have your name? ");
         String user = scanner.nextLine();
+
         System.out.println("Hello, " + user + "!");
         System.out.println(description);
-        for (int i = 0; i < ROUNDS; i++) {
-            String question = rounds[i][0];
-            String correctAnswer = rounds[i][1];
+
+        for (String[] round : rounds) {
+            String question = round[0];
+            String correctAnswer = round[1];
 
             System.out.println("Question: " + question);
             System.out.print("Your answer: ");
@@ -29,6 +30,7 @@ public final class Engine {
             }
             System.out.println("Correct!");
         }
+
         System.out.println("Congratulations, " + user + "!");
     }
 }
