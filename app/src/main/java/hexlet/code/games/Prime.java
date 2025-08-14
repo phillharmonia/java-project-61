@@ -35,7 +35,8 @@ public final class Prime {
         if (number % 2 == 0) {
             return false;
         }
-        for (int i = 3; i <= Math.sqrt(number); i += 2) {
+        int firstOddDivisor = 3;
+        for (int i = firstOddDivisor; i <= Math.sqrt(number); i += 2) {
             if (number % i == 0) {
                 return false;
             }
